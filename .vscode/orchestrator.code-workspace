@@ -421,12 +421,12 @@
 		}},
 		"workbench.colorCustomizations": {
 			// Electric Blue Theme
-			// "commandCenter.background": "#1e40afe1",
-			// "commandCenter.border": "#00d4ff91",
-			// "commandCenter.foreground": "#dbeafe",
-			// "commandCenter.activeBackground": "#1d4ed891",
-			// "commandCenter.activeForeground": "#f0f9ff",
-			// "commandCenter.activeBorder": "#0ea5e9a1",
+			"commandCenter.background": "#1e40afe1",
+			"commandCenter.border": "#00d4ff91",
+			"commandCenter.foreground": "#dbeafe",
+			"commandCenter.activeBackground": "#1d4ed891",
+			"commandCenter.activeForeground": "#f0f9ff",
+			"commandCenter.activeBorder": "#0ea5e9a1",
 
 			// Neon Green Theme
 			// "commandCenter.background": "#16a34ae1",

@@ -46,15 +46,15 @@
           //  "strings": "#8cb7d2",
           "numbers": "#91c281",
           "functions": "#ed2c93",
-          // "textMateRules": [
-          //   { "scope": [ 
-          //     "support.type.property-name.json",
-          //     "string.quoted.double.json",  "meta.object.member",
-          //     "string.quoted.double.js meta.object-literal.key",
-          //     "string.quoted.single.js meta.object-literal.key",
-          //     "meta.object-literal.key.js",
-          //     "support.type.property-name"] ,  "settings": { "foreground": "#ff0000" }}
-          // ]
+          "textMateRules": [
+            { "scope": [ 
+              "support.type.property-name.json",
+              "string.quoted.double.json",  "meta.object.member",
+              "string.quoted.double.js meta.object-literal.key",
+              "string.quoted.single.js meta.object-literal.key",
+              "meta.object-literal.key.js",
+              "support.type.property-name"] ,  "settings": { "foreground": "#ff0000" }}
+          ]
           // --code-gray: #a7a7a3;
           // --code-red: hsl(1deg 100% 49%);d
           // --code-orange: #ffa500;
