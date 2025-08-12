@@ -98,6 +98,7 @@ async function processStacks() {
       console.log(`Stack folder ${stackPath} already exists`)
     }
     
+    // TODO: hanlde watch mode
     // Run docker compose up in the stack directory
     console.log(`Running compose up for ${name}...`)
     const composeSuccess = await runCommand("docker", [
