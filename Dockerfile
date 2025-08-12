@@ -8,7 +8,7 @@ ENV DISPLAY=:99
 
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=apt-lists,target=/var/lib/apt/lists,sharing=locked \
-    apt upgrade -y && apt update -y && apt-get install -y apt-utils openssl curl dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 wget 
+    apt upgrade -y && apt update -y && apt-get install -y apt-utils openssl curl lsof dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 wget 
 
 # install gh cli
 RUN mkdir -p -m 755 /etc/apt/keyrings \
