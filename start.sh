@@ -101,7 +101,7 @@ ln -sf /root/.claude/claude.json /root/.claude.json
 export VSCODE_CLI_USE_FILE_KEYCHAIN=1
 export GITHUB_TOKEN=$GH_TOKEN
 
-code-server --disable-telemetry --bind-addr=0.0.0.0:8086 --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
+code-server --disable-telemetry --bind-addr=0.0.0.0:8086 --auth none --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
 
 # dtach -c /workspace/dtach/main
 pnpm dev
