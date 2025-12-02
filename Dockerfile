@@ -71,7 +71,7 @@ RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension pomdtr.excalidraw-editor
 RUN code-server --install-extension dbaeumer.vscode-eslint
 RUN code-server --install-extension arktypeio.arkdark
-RUN code-server --install-extension google.iwa-studio
+# RUN code-server --install-extension google.iwa-studio FIXME
 # caddy
 
 # working tab code completions:
