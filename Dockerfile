@@ -1,10 +1,12 @@
-FROM node:23
+# TODO: heck compat:
+FROM node:24
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV PATH=$PATH:/root/.cargo/bin
 ENV DOCKER_CONTAINER=true
 ENV DISPLAY=:99
+ENV EDITOR=code
 
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=apt-lists,target=/var/lib/apt/lists,sharing=locked \
@@ -20,6 +22,8 @@ RUN mkdir -p -m 755 /etc/apt/keyrings \
 	&& apt update -y \
 	&& apt install gh -y
 
+RUN npm install -g deno
+
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 
@@ -33,6 +37,7 @@ RUN pnpm config set global-bin-dir /pnpm
 RUN pnpm config set global-dir /pnpm
 
 RUN --mount=type=cache,id=pnpm2,target=/pnpm/store pnpm install -g @anthropic-ai/claude-code
+RUN curl -fsSL https://ampcode.com/install.sh | bash
 
 RUN mkdir /workspace
 RUN mkdir -p ~/.local/share/keyrings
