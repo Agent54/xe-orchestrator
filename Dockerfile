@@ -55,7 +55,7 @@ RUN code-server --install-extension svelte.svelte-vscode
 RUN code-server --install-extension bradlc.vscode-tailwindcss
 RUN code-server --install-extension kokakiwi.vscode-capnproto
 RUN code-server --install-extension file-icons.file-icons
-RUN code-server --install-extension anthropic.claude-code
+# RUN code-server --install-extension anthropic.claude-code
 # RUN code-server --install-extension rooveterinaryinc.roo-cline (crashes)
 # RUN code-server --install-extension saoudrizwan.claude-dev
 RUN code-server --install-extension visualjj.visualjj
@@ -100,6 +100,13 @@ RUN git config --global init.defaultBranch main
 RUN jj config set --user ui.default-command log
 RUN jj config set --user ui.pager cat
 RUN jj config set --user git.auto-local-bookmark true
+
+# ?
+# RUN gh auth setup-git 
+# ?
+RUN jj config set --repo git.subprocess true
+# Or use Git's credential store?
+# RUN git config --global credential.helper store
 
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
 RUN jj new master
