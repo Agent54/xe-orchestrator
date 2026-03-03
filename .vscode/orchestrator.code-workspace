@@ -11,6 +11,14 @@
 		{
 			"path": "/stacks/darc",
       		"name": "Darc",
+		},
+    {
+			"path": "/stacks",
+      		"name": "Library",
+		},
+     {
+			"path": "/stacks/forgejo",
+      		"name": "Issues",
 		}
 	],
 	"settings": {
@@ -459,6 +467,7 @@
 			// "commandCenter.activeBackground": "#be185da1",
 			// "commandCenter.activeForeground": "#fff1f2",
 			// "commandCenter.activeBorder": "#f472b6a1"
-		}
+    },
+    "github-actions.workflows.pinned.workflows": []
 	}
 }

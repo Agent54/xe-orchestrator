@@ -1,4 +1,5 @@
 {
+    "github.copilot.chat.enabled": false,
     "workbench.panel.showLabels": false,
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -43,7 +44,7 @@
           "comments": "#727272",
           "keywords": "#eb0052",
           "variables": "#ffa500",
-          //  "strings": "#8cb7d2",
+          "strings": "#76b2e3",
           "numbers": "#91c281",
           "functions": "#ed2c93",
           // "textMateRules": [
@@ -81,11 +82,104 @@
           // --diff-indicator-green-light-theme: #0c6;
       }
     },
+    "explorer.decorations.colors": false,
+    "explorer.decorations.badges": true,
+    "workbench.editor.decorations.colors": false,
+    "workbench.editor.decorations.badges": true,
 		"workbench.colorCustomizations": {
 			"focusBorder": "#2f82f757",
 			"tab.activeBorderTop": "#2f81f7",
 			"activityBar.activeBorder": "#2f81f7",
-      "panelTitle.activeBorder": "#2f81f7"
+      "panelTitle.activeBorder": "#2f81f7",
+
+      "list.focusOutline": "#2f82f757",
+      "list.focusAndSelectionOutline": "#2f82f757",
+
+      "button.hoverBackground": "#2EA043",
+      "badge.background": "#4083EB",
+      "button.secondaryBackground": "#1C2026",
+      "list.warningForeground": "#b4ac2c",
+      "charts.yellow": "#bab200",
+      "status.warning": "#ccb600",
+      
+       "titleBar.activeBackground": "#06070a",
+      // "titleBar.inactiveBackground": "#000000",
+
+
+      "tab.border": "#00000000",
+      "titleBar.activeBorder": "#121212",
+      "titleBar.inactiveBorder": "#121212",
+      
+      "input.background": "#0a0d11",
+      "activityBar.background": "#0a0d11",
+      "statusBar.background": "#0a0d11",
+      "statusBar.noFolderBackground": "#0a0d11",
+      "tab.activeBackground": "#0a0d11",
+      "tab.hoverBackground": "#0a0d11",
+      "tab.activeBorder": "#0a0d11",
+      "tab.unfocusedActiveBorderd": "#0a0d11",
+      "editor.background": "#0a0d11",
+      "peekViewResult.background": "#0a0d11",
+
+
+      "textBlockQuote.border": "#282e33",
+      "button.secondaryHoverBackground": "#282e33",
+      "checkbox.border": "#282e33",
+      "dropdown.border": "#282e33",
+      "input.border": "#282e33",
+      "titleBar.border": "#282e33",
+      "activityBar.border": "#282e33",
+      "sideBar.border": "#282e33",
+      "sideBarSectionHeader.border": "#282e33",
+      "notifications.border": "#282e33",
+      "pickerGroup.border": "#282e33",
+      "statusBar.border": "#282e33",
+      "statusBarItem.remoteBackground": "#282e33",
+      "editorGroupHeader.tabsBorder": "#282e33",
+      "editorGroup.border": "#282e33",
+      // "tab.border": "#282e33",
+      "tab.unfocusedActiveBorderTop": "#282e33",
+      "panel.border": "#282e33",
+      "panelInput.border": "#282e33",
+      "welcomePage.buttonHoverBackground": "#282e33",
+
+
+      "textBlockQuote.background": "#030507",
+      "titleBar.inactiveBackground": "#030507",
+      "sideBar.background": "#030507",
+      "sideBarSectionHeader.background": "#030507",
+      "editorGroupHeader.tabsBackground": "#030507",
+      "tab.inactiveBackground": "#030507",
+      "editorOverviewRuler.border": "#030507",
+      "panel.background": "#030507",
+
+
+      "foreground": "#e6edf3",
+      "keybindingLabel.foreground": "#e6edf3",
+      "dropdown.foreground": "#e6edf3",
+      "input.foreground": "#e6edf3",
+      "activityBar.foreground": "#e6edf3",
+      "sideBar.foreground": "#e6edf3",
+      "sideBarTitle.foreground": "#e6edf3",
+      "sideBarSectionHeader.foreground": "#e6edf3",
+      "list.hoverForeground": "#e6edf3",
+      "list.inactiveSelectionForeground": "#e6edf3",
+      "list.activeSelectionForeground": "#e6edf3",
+      "list.focusForeground": "#e6edf3",
+      "notifications.foreground": "#e6edf3",
+      "quickInput.foreground": "#e6edf3",
+      "statusBarItem.remoteForeground": "#e6edf3",
+      "tab.activeForeground": "#e6edf3",
+      "breadcrumb.focusForeground": "#e6edf3",
+      "editor.foreground": "#e6edf3",
+      "editorLineNumber.activeForeground": "#e6edf3",
+      "panelTitle.activeForeground": "#e6edf3",
+      "terminal.foreground": "#e6edf3",
+      "settings.headerForeground": "#e6edf3",
+      
+      // "titleBar.activeForeground": "#000000",
+      // "titleBar.inactiveForeground": "#000000"
+
 		},
     "terminal.integrated.scrollback": 9000,
     "explorer.compactFolders": false,

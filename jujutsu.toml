@@ -1,0 +1,22 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[ui]
+default-command = "log"
+pager = "cat"
+
+[git]
+auto-local-bookmark = true
+
+[user]
+name = "lucidNTR"
+email = "jan@ntr.io"
+
+[remotes.origin]
+auto-track-bookmarks = "*"
+
+[snapshot]
+auto-update-stale = true
+
+[visualjj]
+alpha = true
+snapshot-workspaces = true

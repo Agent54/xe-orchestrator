@@ -10,7 +10,7 @@ ENV EDITOR=code
 
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=apt-lists,target=/var/lib/apt/lists,sharing=locked \
-    apt upgrade -y && apt update -y && apt-get install -y apt-utils openssl curl lsof dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 wget 
+    apt upgrade -y && apt update -y && apt-get install -y apt-utils openssl ripgrep curl lsof dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 wget 
 
 # install gh cli
 RUN mkdir -p -m 755 /etc/apt/keyrings \
@@ -36,8 +36,8 @@ RUN mkdir -p /pnpm
 RUN pnpm config set global-bin-dir /pnpm
 RUN pnpm config set global-dir /pnpm
 
-RUN --mount=type=cache,id=pnpm2,target=/pnpm/store pnpm install -g @anthropic-ai/claude-code
-RUN curl -fsSL https://ampcode.com/install.sh | bash
+# RUN --mount=type=cache,id=pnpm2,target=/pnpm/store pnpm install -g @anthropic-ai/claude-code
+# RUN curl -fsSL https://ampcode.com/install.sh | bash
 
 RUN mkdir /workspace
 RUN mkdir -p ~/.local/share/keyrings
@@ -49,8 +49,12 @@ RUN docker context create workerd --docker "host=unix:///var/run/workerd.sock"
 RUN mkdir -p /root/.local/share/code-server/User
 RUN ln -s /workspace/.vscode/settings.json /root/.local/share/code-server/User/settings.json
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+
+# RUN code-server --uninstall-extension github.copilot-chat
+# RUN code-server --uninstall-extension github.copilot
+
 #  --extensions-dir=/workspace/code-server/extensions --user-data-dir=/workspace/code-server/data
-RUN code-server  --install-extension github.github-vscode-theme
+RUN code-server --install-extension github.github-vscode-theme
 RUN code-server --install-extension svelte.svelte-vscode
 RUN code-server --install-extension bradlc.vscode-tailwindcss
 RUN code-server --install-extension kokakiwi.vscode-capnproto
@@ -64,24 +68,44 @@ RUN code-server --install-extension github.vscode-github-actions
 RUN code-server --install-extension ms-vscode.vscode-github-issue-notebooks
 RUN code-server --install-extension ms-azuretools.vscode-containers
 RUN code-server --install-extension ms-playwright.playwright
-RUN code-server --install-extension ms-toolsai.jupyter
+# RUN code-server --install-extension ms-toolsai.jupyter
 RUN code-server --install-extension gruntfuggly.todo-tree
 RUN code-server --install-extension yoavbls.pretty-ts-errors
 RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension pomdtr.excalidraw-editor
 RUN code-server --install-extension dbaeumer.vscode-eslint
 RUN code-server --install-extension arktypeio.arkdark
+
+
+# ms-vsliveshare.vsliveshare
+# semanticdiff.semanticdiff
+#tailwind
+RUN code-server --install-extension stateful.runme
+RUN code-server --install-extension jellydn.toggle-excluded-files
+
+RUN code-server --install-extension tamasfe.even-better-toml
+RUN code-server --install-extension xmonader.vscode-capnp
+RUN code-server --install-extension codesmith.markdown-inline-editor-vscode
+RUN code-server --install-extension ms-vscode.remote-repositories
+
+RUN code-server --install-extension marp-team.marp-vscode
+
+RUN code-server --install-extension github.remotehub
+RUN code-server --install-extension ms-vscode.remote-explorer
+# rangav.vscode-thunder-client TODO open alternative to this shit
+
+# karyfoundation.nearley
+
 # RUN code-server --install-extension google.iwa-studio FIXME
 # caddy
 
 # working tab code completions:
-RUN code-server --install-extension sourcegraph.amp
-RUN code-server --install-extension kilocode.kilo-code
+# RUN code-server --install-extension sourcegraph.amp
+# RUN code-server --install-extension kilocode.kilo-code
 
 # lanes
 # RUN code-server --install-extension l-igh-t.vscode-theme-seti-folder
 # RUN code-server --install-extension thang-nm.flow-icons
-# RUN code-server --install-extension adrianwilczynski.toggle-hidden
 # remove: dart, groovy, etc.
 
 COPY ./start.sh /root/start.sh
@@ -93,6 +117,30 @@ RUN cd /tmp/node_workspace && pnpm install
 
 # replace <meta name="apple-mobile-web-app-capable" content="yes" /> in /usr/lib/code-server/lib/vscode/out/vs/code/browser/workbench/workbench.html with <meta name="apple-mobile-web-app-capable" content="yes" /> <style>body { background-color: #000; }</style>
 RUN sed -i 's/<meta name="apple-mobile-web-app-capable" content="yes" \/>/<meta name="apple-mobile-web-app-capable" content="yes" \/> <style>body { background-color: #000; }<\/style>/' /usr/lib/code-server/lib/vscode/out/vs/code/browser/workbench/workbench.html
+
+RUN echo  'body { background-color: #000 !important; }' >> /usr/lib/code-server/lib/vscode/out/vs/code/browser/workbench/workbench.css
+# .tab.active > .tab-label {
+#     line-height: 25px !important;
+#     height: 25px !important;
+#     margin: 0 !important;
+#     background: var(--vscode-tab-activeBackground) !important;
+#     border-radius: 8px !important;
+#     margin-top: 5px !important;
+#     padding-left: 10px !important;
+# }
+
+# .tab.active > .tab-border-top-container {
+#     display: none !important;
+# }
+
+# .tab.active > .tab-actions {
+#     margin: 0!important;
+#     height: 21px!important;
+#     position: absolute!important;
+#     right: 3px!important;
+#     top: 7px!important;
+# }
+
 
 # COPY . /workspace/
 
@@ -125,6 +173,7 @@ RUN echo "source /workspace/.bashrc" >> /root/.bashrc
 
 # add .xe-state to global gitignore
 RUN echo ".xe-state" >> /root/.gitignore
+RUN echo 'ignore-scripts=true' >> /root/.npmrc
 
 # ENTRYPOINT bash
 # CMD /root/start.sh

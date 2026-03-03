@@ -1,3 +1,7 @@
+# FIXME split docker profiles 
+# editor-system profile: full Docker socket, high trust.
+# editor-app profile: no host socket. 
+
 name: darc
 services:
   orchestrator:
@@ -9,7 +13,6 @@ services:
     ports:
       - "127.0.0.1:9229:9229"
       - "127.0.0.1:8086:8086" # vscode server
-      # - "54545:54545" # calude auth endpoint
       - name: main
         target: 5196 # orchestrator routing port
         app_protocol: http
@@ -37,8 +40,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - git-sync:/git-sync
       - ./.git-local:/git-sync/orchestrator
-      ## check how to share the claude .claude.json file or if store in .claude/...
-      - claude-home:/root/.claude
       - code-server-data:/root/.local/share/code-server/User
       - $STACKS_PATH:/stacks/
       - ./.vscode/config.yaml:/root/.config/code-server/config.yaml
@@ -47,7 +48,6 @@ services:
       - dbus:/var/lib/dbus
 volumes:
   git-sync: {}
-  claude-home: {}
   code-server-data: {}
   secrets: {}
   dbus: {}
