@@ -81,16 +81,13 @@ if command -v secret-tool >/dev/null 2>&1 && [[ "${VSCODE_SECRETS_FALLBACK:-}" !
     fi
 fi
 
-# calude code does not respect the .claude folder and has no args to set it
-ln -sf /root/.claude/claude.json /root/.claude.json  
-
 # docker compose -f /stacks/*/docker-compose.yaml up -d
 
-./stacks.js
+# ./stacks.js
 
-/workspace/sync-setup.sh orchestrator
+# /workspace/sync-setup.sh orchestrator
 
-./sync-loop.sh both &
+# ./sync-loop.sh both &
 
 # watch -n 2 'jj git push --remote sync --allow-empty-description -c @-' &
 
@@ -104,4 +101,4 @@ export GITHUB_TOKEN=$GH_TOKEN
 code-server --disable-telemetry --bind-addr=0.0.0.0:8086 --auth none --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
 
 # dtach -c /workspace/dtach/main
-pnpm dev
+# pnpm dev

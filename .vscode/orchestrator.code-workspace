@@ -1,26 +1,18 @@
 {
 	"folders": [
-		{
-			"path": "/workspace",
-      		"name": "Orchestrator"
-		},
-    	{
-			"path": "/stacks/elk",
-      		"name": "Elk",
-		},
-		{
-			"path": "/stacks/darc",
-      		"name": "Darc",
-		},
     {
-			"path": "/stacks",
-      		"name": "Library",
-		},
-     {
-			"path": "/stacks/forgejo",
-      		"name": "Issues",
-		}
-	],
+      "path": "/workspace",
+      "name": "Orchestrator"
+    },
+    {
+      "path": "/stacks/darc",
+      "name": "Darc"
+    },
+    {
+      "path": "/stacks",
+      "name": "Library"
+    }
+  ],
 	"settings": {
 		"editor.tokenColorCustomizations": {
       "[GitHub Dark Default]": {
